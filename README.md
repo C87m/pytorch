@@ -1,9 +1,9 @@
 # pytorch
 研究で使うので勉強
 
-## tutorial
+## tutorialフォルダ
 * verification.py
-  - verificationに載ってたコード
+  - verificationに載ってたコード、ランダム値のテンソルを作成
 * quickstart.py
   - quickstartに載ってたコード(途中)
 * view_FMNIST.py
