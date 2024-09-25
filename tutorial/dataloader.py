@@ -3,6 +3,8 @@ from torch import nn
 from torch.utils.data import DataLoader 
 from torchvision import datasets #torchtext torchaudioなど
 from torchvision.transforms import ToTensor
+import matplotlib.pyplot as plt
+
 
 # トレーニングデータセットのダウンロード
 # データセットにはtransformとtarget_transformの２つの引数が含まれる
@@ -26,11 +28,15 @@ batch_size = 64 # データの分割数
 
 # データローダーの作成
 # 反復処理を楽にしてくれる
-train_dataloader = DataLoader(training_data, batch_size=batch_size)
-test_dataloader = DataLoader(test_data, batch_size=batch_size)
+train_dataloader = DataLoader(training_data, batch_size=batch_size, shuffle=True)
+test_dataloader = DataLoader(test_data, batch_size=batch_size, shuffle=True)
 
-
-for X, y in test_dataloader:
-    print(f"Shape of X [N, C, H, W]: {X.shape}")
-    print(f"Shape of y: {y.shape} {y.dtype}")
-    break
+# データローダーを使った反復
+train_features, train_labels = next(iter(train_dataloader))
+print(f"Feature batch shape: {train_features.size()}")
+print(f"Labels batch shape: {train_labels.size()}")
+img = train_features[0].squeeze()
+label = train_labels[0]
+plt.imshow(img, cmap="gray")
+plt.show()
+print(f"Label: {label}")
