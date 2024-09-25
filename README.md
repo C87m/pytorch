@@ -8,3 +8,14 @@
   - quickstartに載ってたコード(途中)
 * view_FMNIST.py
   - quickstartのFMNISTの表示から分岐してグリッド表示できるようにしたコード
+* dataloader.py
+  - DataLoaderの使い方とかバッチとか
+* check_machine.py
+  - CPUかGPUか
+* Module.py
+  - モデルの設定など、理解できてないので後回し中
+* build_network.py
+  - Build the Neural Networkのページのコード
+  - クラスを使ったモデルの定義
+* model_layer.py
+  - モデルの層に含まれる各種機能について
