@@ -35,6 +35,7 @@ test_dataloader = DataLoader(test_data, batch_size=batch_size, shuffle=True)
 train_features, train_labels = next(iter(train_dataloader))
 print(f"Feature batch shape: {train_features.size()}")
 print(f"Labels batch shape: {train_labels.size()}")
+# 64分割されたデータのうちの1つを表示してくれる
 img = train_features[0].squeeze()
 label = train_labels[0]
 plt.imshow(img, cmap="gray")
