@@ -3,6 +3,7 @@ from torch.utils.data import Dataset
 from torchvision import datasets
 from torchvision.transforms import ToTensor
 import matplotlib.pyplot as plt
+from mpl_toolkits.axes_grid1 import ImageGrid
 
 # トレーニングデータセットのダウンロード
 training_data = datasets.FashionMNIST(
@@ -21,27 +22,19 @@ test_data = datasets.FashionMNIST(
 )
 
 
-labels_map = {
-    0: "T-shirt",
-    1: "Trouser",
-    2: "Pullover",
-    3: "Dress",
-    4: "Coat",
-    5: "Sandal",
-    6: "Shirt",
-    7: "Sneaker",
-    8: "Bag",
-    9: "Ankle Boot",
-}
-
 figure = plt.figure(figsize=(8,8)) # サイズ8*8の画像
 cols, rows = 3, 3 # 縦横に表示する画像の数
-for i in range(1, cols * rows + 1):
+
+grid = ImageGrid(figure, 111,
+                 nrows_ncols = (rows, cols),
+                 axes_pad = 0)
+
+for ax, i in zip(grid, range(1, cols * rows + 1)):
     sample_idx = torch.randint(len(training_data), size=(1,)).item() # ランダムな整数を生成
     img, label = training_data[sample_idx] # 画像とラベルを取得
-    figure.add_subplot(rows, cols, i) # 画像のプロット
-    plt.title(labels_map[label]) #ラベル設定
-    plt.axis("off")
-    plt.imshow(img.squeeze(), cmap="gray") # 1次元のリストを削除 グレースケール
+    ax.imshow(img.squeeze(), cmap="gray")
+    
+
 
 plt.show() # 表示
+
