@@ -5,15 +5,13 @@
 * verification.py
   - verificationに載ってたコード、ランダム値のテンソルを作成
 * quickstart.py
-  - quickstartに載ってたコード(途中)
+  - quickstartに載ってたコード
 * view_FMNIST.py
   - quickstartのFMNISTの表示から分岐してグリッド表示できるようにしたコード
 * dataloader.py
   - DataLoaderの使い方とかバッチとか
 * check_machine.py
   - CPUかGPUか
-* Module.py
-  - モデルの設定など、理解できてないので後回し中
 * build_network.py
   - Build the Neural Networkのページのコード
   - クラスを使ったモデルの定義

@@ -44,3 +44,9 @@ logits = model(X) # モデルにデータを渡す
 pred_probab = nn.Softmax(dim=1)(logits) # 予測確率を取得
 y_pred = pred_probab.argmax(1)
 print(f"Predicted class: {y_pred}") #確率が一番大きいものを出力
+
+# ネットワークの構造
+print(f"Model structure: {model}\n\n")
+# 各層でのパラメータ
+for name, param in model.named_parameters():
+    print(f"Layer: {name} | Size: {param.size()} | Values : {param[:2]} \n")

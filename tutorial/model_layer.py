@@ -24,3 +24,17 @@ print(hidden1.size())
 print(f"Before ReLU: {hidden1}\n\n")
 hidden1 = nn.ReLU()(hidden1)
 print(f"After ReLU: {hidden1}")
+
+# 順序付け
+seq_modules = nn.Sequential(
+    flatten,
+    layer1,
+    nn.ReLU(),
+    nn.Linear(20, 10) # この順番で渡される
+)
+input_image = torch.rand(3,28,28)
+logits = seq_modules(input_image)
+
+# Softmax関数によるスケーリング
+softmax = nn.Softmax(dim=1)
+pred_probab = softmax(logits)
